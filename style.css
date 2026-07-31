@@ -1,0 +1,858 @@
+/* ==========================================
+   FALCON CORE
+   STYLE.CSS
+   PART 1
+========================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* Root Colors */
+
+:root{
+
+    --bg:#05010d;
+    --purple:#8b5cf6;
+    --purple-light:#b388ff;
+    --text:#ffffff;
+    --grey:#b5b5b5;
+    --glass:rgba(255,255,255,.08);
+
+}
+
+/* Body */
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Background */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at top,
+    rgba(139,92,246,.25),
+    transparent 60%),
+
+    radial-gradient(circle at bottom,
+    rgba(99,102,241,.18),
+    transparent 70%);
+
+    z-index:-2;
+
+}
+
+/* Boot Screen */
+
+.boot-screen{
+
+    width:420px;
+
+    max-width:90%;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:var(--glass);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    box-shadow:
+
+    0 0 20px rgba(139,92,246,.20),
+
+    0 0 60px rgba(139,92,246,.15);
+
+}
+/* Title */
+
+.title,
+.boot-screen h1{
+
+    font-size:42px;
+
+    letter-spacing:4px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    text-shadow:
+        0 0 10px var(--purple),
+        0 0 20px var(--purple);
+
+    margin-bottom:12px;
+
+}
+
+/* Version */
+
+.version{
+
+    color:var(--grey);
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    margin-bottom:35px;
+
+}
+
+/* Progress Container */
+
+.progress{
+
+    width:100%;
+
+    height:14px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin-bottom:20px;
+
+}
+
+/* Progress Fill */
+
+.progress-bar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #8b5cf6,
+        #c084fc
+    );
+
+    border-radius:50px;
+
+    box-shadow:
+        0 0 12px #8b5cf6,
+        0 0 24px #c084fc;
+
+    transition:width .3s ease;
+
+}
+
+/* Percentage */
+
+.percent{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+    color:white;
+
+}
+
+/* Status */
+
+.status{
+
+    color:var(--purple-light);
+
+    letter-spacing:1px;
+
+    font-size:15px;
+
+    min-height:25px;
+
+}
+
+/* Small Glow */
+
+.boot-screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:25px;
+
+    pointer-events:none;
+
+}
+/* ===========================
+   Floating Animation
+=========================== */
+
+.boot-screen{
+
+    animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+/* ===========================
+   Fade In
+=========================== */
+
+.boot-screen{
+
+    animation:
+    fadeIn 1.5s ease,
+    float 4s ease-in-out infinite;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+   Background Glow
+=========================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:600px;
+
+    height:600px;
+
+    background:#8b5cf6;
+
+    filter:blur(180px);
+
+    opacity:.15;
+
+    border-radius:50%;
+
+    top:-200px;
+
+    left:-150px;
+
+    z-index:-3;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:500px;
+
+    height:500px;
+
+    background:#7c3aed;
+
+    filter:blur(180px);
+
+    opacity:.10;
+
+    border-radius:50%;
+
+    bottom:-180px;
+
+    right:-120px;
+
+    z-index:-3;
+
+}
+/* ===== Premium Buttons ===== */
+
+button{
+
+    width:260px;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:rgba(139,92,246,.18);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px) scale(1.03);
+
+    background:#8b5cf6;
+
+    box-shadow:
+        0 0 20px #8b5cf6,
+        0 0 40px rgba(139,92,246,.5);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* Password Input */
+
+input{
+
+    width:260px;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    outline:none;
+
+    text-align:center;
+
+    font-size:16px;
+
+}
+
+input::placeholder{
+
+    color:#cccccc;
+
+}
+h1{
+    letter-spacing:2px;
+    text-shadow:
+        0 0 10px #8b5cf6,
+        0 0 20px #8b5cf6,
+        0 0 40px rgba(139,92,246,.6);
+
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+
+        text-shadow:
+        0 0 10px #8b5cf6;
+
+    }
+
+    to{
+
+        text-shadow:
+        0 0 20px #8b5cf6,
+        0 0 40px #8b5cf6,
+        0 0 70px #8b5cf6;
+
+    }
+
+}
+/* ===== Purple Memory Patch ===== */
+
+.screen{
+    display:none;
+}
+
+.screen.active{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.title{
+    color:white;
+    font-size:2rem;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#cfcfcf;
+    text-align:center;
+    margin-bottom:25px;
+    letter-spacing:2px;
+}
+
+/* ========================= */
+/* GLASS CARD */
+/* ========================= */
+
+.glass-card{
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        0 0 25px rgba(139,92,246,.25);
+
+    text-align:center;
+
+}
+/* ========================= */
+/* Floating Hearts */
+/* ========================= */
+
+.heart{
+
+    position:fixed;
+
+    color:#ff4fa3;
+
+    font-size:20px;
+
+    pointer-events:none;
+
+    animation:floatUp 5s linear forwards;
+
+}
+
+@keyframes floatUp{
+
+    0%{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-100vh);
+
+        opacity:0;
+
+    }
+
+}
+/* ========================= */
+/* Fade Animation */
+/* ========================= */
+
+.screen{
+
+    display:none;
+
+    opacity:0;
+
+    transition:opacity .6s ease;
+
+}
+
+.screen.active{
+
+    display:flex;
+
+    opacity:1;
+
+}
+.letter-card{
+
+    box-shadow:
+    0 0 25px rgba(180,100,255,.35);
+
+    animation: glow 2s infinite alternate;
+
+    max-height: 80vh;
+
+    overflow-y: auto;
+
+    padding-right: 10px;
+
+}
+
+@keyframes glow{
+
+    from{
+
+        box-shadow:
+        0 0 20px rgba(180,100,255,.25);
+
+    }
+
+    to{
+
+        box-shadow:
+        0 0 45px rgba(180,100,255,.6);
+
+    }
+
+}
+/* ========================= */
+/* GALLERY */
+/* ========================= */
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:18px;
+
+    margin-top:25px;
+
+    padding:10px;
+
+}
+
+.gallery img{
+
+    width:100%;
+
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.35);
+
+}
+
+.gallery img:hover{
+
+    transform:translateY(-8px) scale(1.03);
+
+    box-shadow:
+        0 15px 30px rgba(139,92,246,.45);
+
+}
+/* ========================= */
+/* GLASS CARD */
+/* ========================= */
+
+.glass-card{
+
+    width: 90%;
+
+    max-width: 900px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        0 0 20px rgba(139,92,246,.25),
+        0 0 50px rgba(139,92,246,.15);
+
+}
+/* ========================= */
+/* LIGHTBOX */
+/* ========================= */
+
+.lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.lightbox.active{
+
+    display:flex;
+
+}
+
+.lightbox img{
+
+    max-width:85%;
+
+    max-height:85vh;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 0 30px #8b5cf6,
+        0 0 60px rgba(139,92,246,.4);
+
+}
+
+#closeLightbox{
+
+    position:absolute;
+
+    top:25px;
+
+    right:40px;
+
+    font-size:45px;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+#prevBtn,
+#nextBtn{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    font-size:28px;
+
+}
+
+#prevBtn{
+
+    left:40px;
+
+}
+
+#nextBtn{
+
+    right:40px;
+
+}
+/* ========================= */
+/* Gallery Animation */
+/* ========================= */
+
+.gallery img{
+
+    opacity:0;
+
+    animation:fadeUp .8s forwards;
+
+}
+
+.gallery img:nth-child(1){animation-delay:.05s;}
+.gallery img:nth-child(2){animation-delay:.10s;}
+.gallery img:nth-child(3){animation-delay:.15s;}
+.gallery img:nth-child(4){animation-delay:.20s;}
+.gallery img:nth-child(5){animation-delay:.25s;}
+.gallery img:nth-child(6){animation-delay:.30s;}
+.gallery img:nth-child(7){animation-delay:.35s;}
+.gallery img:nth-child(8){animation-delay:.40s;}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+/* ========================= */
+/* PHOTO COUNTER */
+/* ========================= */
+
+#photoCounter{
+
+    margin-top:18px;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 10px #8b5cf6,
+        0 0 20px rgba(139,92,246,.5);
+
+}
+.final-message{
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:2;
+
+    font-size:18px;
+
+    color:#f3e8ff;
+
+}
+/* ===========================
+   PURPLE RAIN
+=========================== */
+
+.rain{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:0;
+
+}
+
+
+
+
+
+
+
+
